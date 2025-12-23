@@ -24,3 +24,4 @@ services:
 networks:
   app-network:
     name: npm_app_network
+    external: true
