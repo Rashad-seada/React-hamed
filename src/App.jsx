@@ -8,6 +8,7 @@ import Portfolio from './sections/Portfolio';
 import About from './sections/About';
 import Preloader from './components/layout/Preloader';
 import WhatsAppButton from './components/ui/WhatsAppButton';
+import bgVideo from './assets/bg.mp4';
 
 function App() {
     const [isLoading, setIsLoading] = useState(true);
@@ -28,23 +29,41 @@ function App() {
     }, []);
 
     return (
-        <div className="bg-brand-blue min-h-screen text-white selection:bg-brand-pink selection:text-white">
-            <AnimatePresence>
-                {isLoading ? (
-                    <Preloader key="preloader" />
-                ) : (
-                    <>
-                        <Navbar />
-                        <main>
-                            <Hero />
-                            <About />
-                            <Portfolio />
-                        </main>
-                        <Footer />
-                        <WhatsAppButton />
-                    </>
-                )}
-            </AnimatePresence>
+        <div className="relative min-h-screen text-white selection:bg-brand-pink selection:text-white">
+            {/* Fixed Video Background */}
+            <div className="fixed inset-0 z-0">
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="w-full h-full object-cover"
+                >
+                    <source src={bgVideo} type="video/mp4" />
+                </video>
+                {/* Brand Blue Overlay */}
+                <div className="absolute inset-0 bg-brand-blue/80" />
+            </div>
+
+            {/* Content */}
+            <div className="relative z-10">
+                <AnimatePresence>
+                    {isLoading ? (
+                        <Preloader key="preloader" />
+                    ) : (
+                        <>
+                            <Navbar />
+                            <main>
+                                <Hero />
+                                <About />
+                                <Portfolio />
+                            </main>
+                            <Footer />
+                            <WhatsAppButton />
+                        </>
+                    )}
+                </AnimatePresence>
+            </div>
         </div>
     );
 }

@@ -1,8 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Button from '../components/ui/Button';
-import heroImage from '../assets/hero-image.png';
-import designerImage from '../assets/designer.png'; // Import the designer image
+import designerImage from '../assets/designer.png';
 
 const Hero = () => {
     const { t } = useTranslation();
@@ -11,17 +10,7 @@ const Hero = () => {
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-            {/* Blurry Background Image */}
-            <div className="absolute inset-0 z-0">
-                <img
-                    src={heroImage}
-                    alt="Background Art"
-                    className="w-full h-full object-cover filter blur-sm opacity-40 scale-110"
-                />
-                <div className="absolute inset-0 bg-brand-blue/80 mix-blend-multiply" /> {/* Blue tint overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-transparent via-brand-blue/20 to-brand-blue" /> {/* Fade to solid blue */}
-            </div>
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-transparent">
 
             {/* Background Gradient Blob */}
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-pink/30 rounded-full blur-[128px] -z-10 animate-pulse" />

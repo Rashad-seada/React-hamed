@@ -15,7 +15,7 @@ const About = () => {
     const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
     return (
-        <section ref={containerRef} id="about" className="relative min-h-screen bg-brand-blue flex items-center py-20 overflow-hidden">
+        <section ref={containerRef} id="about" className="relative min-h-screen bg-transparent flex items-center py-20 overflow-hidden">
 
 
             {/* Fluid Abstract Shape Background */}

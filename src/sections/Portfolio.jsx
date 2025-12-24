@@ -66,7 +66,7 @@ const Portfolio = () => {
         : projects.filter(p => p.category === activeTab);
 
     return (
-        <section id="work" className="relative bg-brand-blue min-h-screen py-20 md:py-32 overflow-hidden">
+        <section id="work" className="relative bg-transparent min-h-screen py-20 md:py-32 overflow-hidden">
             <div className="container mx-auto px-4 relative z-10">
                 {/* Section Title */}
                 <div className="text-center mb-12">
