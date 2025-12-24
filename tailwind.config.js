@@ -6,15 +6,13 @@ export default {
     ],
     theme: {
         extend: {
-            fontFamily: {
-                sans: ['RH-Zak', 'sans-serif'],
-            },
             colors: {
                 'brand-pink': '#FF2C7C',
-                'brand-blue': '#0600C6',
+                'brand-blue': '#030689',
             },
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
+                alexandria: ['Alexandria', 'sans-serif'],
             },
             container: {
                 center: true,

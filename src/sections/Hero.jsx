@@ -43,13 +43,69 @@ const Hero = () => {
                         {t('hero.tagline')}
                     </motion.h2>
                     <motion.h1
-                        className="text-5xl md:text-7xl font-bold leading-tight mb-6 bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400"
+                        className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 flex flex-col gap-2 w-full max-w-full break-words"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ delay: 0.4 }}
                     >
-                        {t('hero.title_prefix')} <br />
-                        <span className="text-white">{t('hero.title_suffix')}</span>
+
+                        {/* Prefix Animation */}
+                        <motion.span
+                            className="text-white block w-full"
+                            initial="hidden"
+                            animate="visible"
+                            variants={{
+                                hidden: { opacity: 1 },
+                                visible: {
+                                    opacity: 1,
+                                    transition: {
+                                        delayChildren: 0.5,
+                                        staggerChildren: 0.05
+                                    }
+                                }
+                            }}
+                        >
+                            {t('hero.title_prefix').split("").map((char, index) => (
+                                <motion.span
+                                    key={`p-${index}`}
+                                    variants={{
+                                        hidden: { opacity: 0 },
+                                        visible: { opacity: 1 }
+                                    }}
+                                >
+                                    {char}
+                                </motion.span>
+                            ))}
+                        </motion.span>
+
+                        {/* Suffix Animation */}
+                        <motion.span
+                            className="text-white block w-full"
+                            initial="hidden"
+                            animate="visible"
+                            variants={{
+                                hidden: { opacity: 1 },
+                                visible: {
+                                    opacity: 1,
+                                    transition: {
+                                        delayChildren: 2.5, // Start after prefix (approx calculation or adjusted feel)
+                                        staggerChildren: 0.05
+                                    }
+                                }
+                            }}
+                        >
+                            {t('hero.title_suffix').split("").map((char, index) => (
+                                <motion.span
+                                    key={`s-${index}`}
+                                    variants={{
+                                        hidden: { opacity: 0 },
+                                        visible: { opacity: 1 }
+                                    }}
+                                >
+                                    {char}
+                                </motion.span>
+                            ))}
+                        </motion.span>
                     </motion.h1>
                     <motion.p
                         className="text-blue-100 text-lg md:text-xl max-w-lg mb-8 leading-relaxed"
@@ -110,7 +166,7 @@ const Hero = () => {
                 <div className="w-[1px] h-12 bg-gradient-to-b from-transparent via-gray-500 to-transparent" />
                 <span className="text-xs uppercase tracking-widest">{t('hero.scroll')}</span>
             </motion.div>
-        </section>
+        </section >
     );
 };
 

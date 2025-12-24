@@ -1,82 +1,70 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import bgGeo from '../assets/bg-geo.png';
-
-const Phrase = ({ children, progress, range }) => {
-    const opacity = useTransform(progress, range, [0.2, 1, 0.2]);
-    const blur = useTransform(progress, range, ["4px", "0px", "4px"]);
-
-    return (
-        <motion.span style={{ opacity, filter: useTransform(blur, b => `blur(${b})`) }} className="rtl:ml-3 ltr:mr-3 mx-1 transition-colors duration-500">
-            {children}
-        </motion.span>
-    );
-};
+import designerImage from '../assets/designer.png';
+import Button from '../components/ui/Button';
 
 const About = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const containerRef = useRef(null);
     const { scrollYProgress } = useScroll({
         target: containerRef,
-        offset: ["start start", "end end"]
+        offset: ["start end", "end start"]
     });
 
-    const philosophy = t('about.philosophy_text');
-    const words = philosophy.split(" ");
-
-    // Calculate ranges for each word to highlight sequentially
-    const step = 1 / words.length;
+    const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
     return (
-        <section ref={containerRef} id="about" className="relative h-[250vh] md:h-[300vh] bg-transparent" style={{ position: 'relative' }}>
-            {/* Background Geometric - Fixed */}
-            <div className="fixed inset-0 opacity-10 select-none pointer-events-none mix-blend-screen z-0 overflow-hidden">
-                <motion.img
-                    src={bgGeo}
-                    alt="Geometric Texture"
-                    className="w-full h-full object-cover"
-                    animate={{ y: [-20, 0, -20] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-                />
-            </div>
+        <section ref={containerRef} id="about" className="relative min-h-screen bg-brand-blue flex items-center py-20 overflow-hidden">
 
-            <div className="sticky top-0 h-screen overflow-hidden pt-20 pb-20 flex flex-col justify-start items-center md:pt-40">
-                <div className="container mx-auto px-4 relative z-10 max-w-5xl">
+
+            {/* Fluid Abstract Shape Background */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-brand-pink/20 rounded-full blur-[120px] mix-blend-screen animate-pulse duration-[10s]" />
+            <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-brand-blue/40 rounded-full blur-[100px] mix-blend-overlay" />
+
+            <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center text-center h-full">
+
+                {/* Content: Typography & CTA */}
+                <div className="max-w-4xl mx-auto flex flex-col items-center">
                     <motion.h2
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        className="text-sm font-bold text-brand-pink tracking-widest uppercase mb-12 text-center"
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.8 }}
+                        className="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase leading-[0.9] tracking-tight mb-8"
+                        style={{ fontFamily: i18n.language === 'ar' ? "'Alexandria', sans-serif" : 'inherit' }}
                     >
-                        {t('about.philosophy_title')}
+                        {t('about.im_hamed')}<br />
+                        <span className="text-brand-pink drop-shadow-[0_0_15px_rgba(255,44,124,0.6)]">{t('about.the_designer')}</span>
                     </motion.h2>
 
-                    <div className="flex flex-wrap justify-center text-center" dir="auto">
-                        {words.map((word, i) => {
-                            const start = i * step;
-                            const end = start + (step * 2);
-                            return (
-                                <Phrase key={i} progress={scrollYProgress} range={[start, (start + end) / 2, end]}>
-                                    <span className="text-3xl md:text-6xl lg:text-7xl font-bold leading-tight text-white mb-4 inline-block">{word}</span>
-                                </Phrase>
-                            );
-                        })}
-                    </div>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.2, duration: 0.8 }}
+                        className="text-lg md:text-xl text-gray-300 max-w-lg mx-auto mb-10 font-light leading-relaxed"
+                    >
+                        {t('hero.description')}
+                    </motion.p>
 
-                    <div className="mt-32 grid grid-cols-1 md:grid-cols-3 gap-12 border-t border-white/10 pt-12 w-full">
-                        <div className="text-center">
-                            <span className="block text-5xl font-bold text-white mb-2">12+</span>
-                            <span className="text-sm text-brand-pink uppercase tracking-widest">{t('about.years_experience')}</span>
-                        </div>
-                        <div className="text-center">
-                            <span className="block text-5xl font-bold text-white mb-2">85+</span>
-                            <span className="text-sm text-brand-pink uppercase tracking-widest">{t('about.projects_shipped')}</span>
-                        </div>
-                        <div className="text-center">
-                            <span className="block text-5xl font-bold text-white mb-2">15</span>
-                            <span className="text-sm text-brand-pink uppercase tracking-widest">{t('about.global_awards')}</span>
-                        </div>
-                    </div>
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4 }}
+                    >
+                        <Button
+                            variant="primary"
+                            onClick={() => document.getElementById('contact').scrollIntoView()}
+                            className="rounded-full px-8 py-4 text-lg flex items-center gap-3 bg-brand-pink hover:bg-brand-pink/90 text-white transition-all shadow-[0_0_20px_rgba(255,44,124,0.4)]"
+                        >
+                            <span>{t('hero.start_project')}</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 -rotate-45 rtl:rotate-180">
+                                <path strokeLinecap="round" strokeLinejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                        </Button>
+                    </motion.div>
                 </div>
             </div>
         </section>

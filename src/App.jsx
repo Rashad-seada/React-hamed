@@ -37,8 +37,8 @@ function App() {
                         <Navbar />
                         <main>
                             <Hero />
-                            <Portfolio />
                             <About />
+                            <Portfolio />
                         </main>
                         <Footer />
                         <WhatsAppButton />

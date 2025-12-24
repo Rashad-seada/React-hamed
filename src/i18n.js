@@ -13,8 +13,8 @@ const resources = {
             },
             "hero": {
                 "tagline": "قيمة . فخامة . تأثير",
-                "title_prefix": "هوية بصرية تخلق لبراندك",
-                "title_suffix": "شخصية ومكانة",
+                "title_prefix": "نبني هويتك البصريه ...",
+                "title_suffix": "لتعكس رؤيتك للعالم",
                 "description": "مين قال إن التصميم مجرد ألوان؟ أنا هنا عشان أحول فكرتك لبراند قوي يسيب بصمة، يزود مبيعاتك، ويحطك في مكان تانية خالص في السوق.",
                 "view_portfolio": "شوف شغلي",
                 "start_project": "يلا نبني براند",
@@ -51,11 +51,10 @@ const resources = {
                 "see_more": "شاهد المزيد على "
             },
             "about": {
-                "philosophy_title": "ليه تشتغل معايا؟",
-                "philosophy_text": "التصميم مش بس 'شكل حلو'، هو استثمار. فلسفتي بسيطة: أي خط أو لون ملوش لازمة بيتشال. أنا بركز على 'الخلاصة' اللي تخدم البيزنس بتاعك وتوصل رسالتك لعميلك من غير دوشة. شغل يجمع بين 'الشياكة' و 'ذكاء البيزنس'.",
-                "years_experience": "سنين خبرة في السوق",
-                "projects_shipped": "مشروع ناجح",
-                "global_awards": "جايزة وتقدير"
+                "im_hamed": "أنا حامد،",
+                "the_designer": "المصمم",
+                "with_the": "صاحب",
+                "magic_touch": "اللمسة السحرية."
             },
             "footer": {
                 "lets_talk": "جاهز تنقل براندك في حتة تانية؟",
@@ -74,8 +73,8 @@ const resources = {
             },
             "hero": {
                 "tagline": "Value . Prestige . Impact",
-                "title_prefix": "Visual Branding that",
-                "title_suffix": "Means Business",
+                "title_prefix": "Building Your Visual Identity...",
+                "title_suffix": "To Reflect Your Vision to the World",
                 "description": "Who says design is just art? I bridge the gap between creative aesthetics and business logic to build brands that don't just look good—they sell and leave a legacy.",
                 "view_portfolio": "See the Impact",
                 "start_project": "Let's Build It",
@@ -112,11 +111,10 @@ const resources = {
                 "see_more": "See More on "
             },
             "about": {
-                "philosophy_title": "Why Work With Me?",
-                "philosophy_text": "Design is an investment, not an expense. My philosophy is simple: cut the noise, keep the essence. I focus on creating a 'Strategic Aesthetic'—work that looks stunning but, more importantly, solves your business problems and elevates your market positioning.",
-                "years_experience": "Years of Market Insight",
-                "projects_shipped": "Successful Projects",
-                "global_awards": "Awards & Recognition"
+                "im_hamed": "أنا حامد،",
+                "the_designer": "المصمم",
+                "with_the": "صاحب",
+                "magic_touch": "اللمسة السحرية."
             },
             "footer": {
                 "lets_talk": "Ready to Level Up Your Brand?",
