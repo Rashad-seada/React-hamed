@@ -36,7 +36,9 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
                 <a href="#" className="block">
                     <motion.div layoutId="brand-logo" transition={{ duration: 0.8, ease: [0.6, 0.01, -0.05, 0.9] }}>
-                        <img src={logo} alt="Brand Logo" className="h-12 w-auto object-contain" />
+                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-brand-blue via-blue-700 to-blue-900 border-2 border-brand-pink flex items-center justify-center p-2 shadow-lg shadow-brand-pink/20">
+                            <img src={logo} alt="Brand Logo" className="w-full h-full object-contain" />
+                        </div>
                     </motion.div>
                 </a>
 

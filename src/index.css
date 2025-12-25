@@ -11,8 +11,24 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'FF Shamel';
+    src: url('/fonts/ArbFONTS-FFShamelFamily-SansOneBook.ttf') format('truetype');
+    font-weight: 100 499;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'FF Shamel';
+    src: url('/fonts/ArbFONTS-FFShamelFamily-SansOneBold.ttf') format('truetype');
+    font-weight: 500 900;
+    font-style: normal;
+    font-display: swap;
+}
+
 :root {
-    font-family: 'RH-Zak', sans-serif;
+    font-family: 'FF Shamel', 'Alexandria', sans-serif;
     line-height: 1.5;
     font-weight: 400;
 
@@ -29,7 +45,7 @@
 /* Arabic Font Override */
 html[dir="rtl"] :root,
 html[dir="rtl"] body {
-    font-family: 'Alexandria', sans-serif;
+    font-family: 'FF Shamel', 'Alexandria', sans-serif;
 }
 
 html {

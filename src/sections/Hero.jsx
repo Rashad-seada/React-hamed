@@ -1,20 +1,23 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Button from '../components/ui/Button';
-import designerImage from '../assets/designer.png';
+import logo from '../assets/logo.png';
 
 const Hero = () => {
-    const { t } = useTranslation();
+    const { t, i18n } = useTranslation();
     const { scrollY } = useScroll();
     const y = useTransform(scrollY, [0, 500], [0, 200]);
     const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
     return (
-        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-transparent">
+        <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-10 bg-transparent">
 
             {/* Background Gradient Blob */}
             <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-brand-pink/30 rounded-full blur-[128px] -z-10 animate-pulse" />
             <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-brand-blue/30 rounded-full blur-[128px] -z-10 animate-pulse delay-1000" />
+
+            {/* Pink Frame Border */}
+            <div className="hidden md:block absolute inset-12 md:inset-16 lg:inset-24 border-2 border-brand-pink/50 rounded-3xl pointer-events-none z-20" />
 
             <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center z-10 relative">
                 <motion.div
@@ -32,6 +35,7 @@ const Hero = () => {
                         {t('hero.tagline')}
                     </motion.h2>
                     <motion.h1
+                        key={i18n.language} // Force re-render on language change
                         className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight mb-6 flex flex-col gap-2 w-full max-w-full break-words"
                         initial={{ opacity: 0, y: 30 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -39,8 +43,8 @@ const Hero = () => {
                     >
 
                         {/* Prefix Animation */}
-                        <motion.span
-                            className="text-white block w-full"
+                        <motion.div
+                            className="text-white block w-full font-normal"
                             initial="hidden"
                             animate="visible"
                             variants={{
@@ -54,21 +58,46 @@ const Hero = () => {
                                 }
                             }}
                         >
-                            {t('hero.title_prefix').split("").map((char, index) => (
+                            {t('hero.title_prefix').split(" ").map((word, wordIndex) => (
                                 <motion.span
-                                    key={`p-${index}`}
+                                    key={`p-word-${wordIndex}`}
+                                    className="inline-block whitespace-nowrap mr-2"
                                     variants={{
-                                        hidden: { opacity: 0 },
-                                        visible: { opacity: 1 }
+                                        hidden: { opacity: 1 },
+                                        visible: {
+                                            opacity: 1,
+                                            transition: { staggerChildren: 0.05 }
+                                        }
                                     }}
                                 >
-                                    {char}
+                                    {i18n.language === 'ar' ? (
+                                        <motion.span
+                                            variants={{
+                                                hidden: { opacity: 0 },
+                                                visible: { opacity: 1 }
+                                            }}
+                                        >
+                                            {word}
+                                        </motion.span>
+                                    ) : (
+                                        word.split("").map((char, charIndex) => (
+                                            <motion.span
+                                                key={`p-char-${wordIndex}-${charIndex}`}
+                                                variants={{
+                                                    hidden: { opacity: 0 },
+                                                    visible: { opacity: 1 }
+                                                }}
+                                            >
+                                                {char}
+                                            </motion.span>
+                                        ))
+                                    )}
                                 </motion.span>
                             ))}
-                        </motion.span>
+                        </motion.div>
 
                         {/* Suffix Animation */}
-                        <motion.span
+                        <motion.div
                             className="text-white block w-full"
                             initial="hidden"
                             animate="visible"
@@ -77,24 +106,49 @@ const Hero = () => {
                                 visible: {
                                     opacity: 1,
                                     transition: {
-                                        delayChildren: 2.5, // Start after prefix (approx calculation or adjusted feel)
+                                        delayChildren: 2.5,
                                         staggerChildren: 0.05
                                     }
                                 }
                             }}
                         >
-                            {t('hero.title_suffix').split("").map((char, index) => (
+                            {t('hero.title_suffix').split(" ").map((word, wordIndex) => (
                                 <motion.span
-                                    key={`s-${index}`}
+                                    key={`s-word-${wordIndex}`}
+                                    className="inline-block whitespace-nowrap mr-2"
                                     variants={{
-                                        hidden: { opacity: 0 },
-                                        visible: { opacity: 1 }
+                                        hidden: { opacity: 1 },
+                                        visible: {
+                                            opacity: 1,
+                                            transition: { staggerChildren: 0.05 }
+                                        }
                                     }}
                                 >
-                                    {char}
+                                    {i18n.language === 'ar' ? (
+                                        <motion.span
+                                            variants={{
+                                                hidden: { opacity: 0 },
+                                                visible: { opacity: 1 }
+                                            }}
+                                        >
+                                            {word}
+                                        </motion.span>
+                                    ) : (
+                                        word.split("").map((char, charIndex) => (
+                                            <motion.span
+                                                key={`s-char-${wordIndex}-${charIndex}`}
+                                                variants={{
+                                                    hidden: { opacity: 0 },
+                                                    visible: { opacity: 1 }
+                                                }}
+                                            >
+                                                {char}
+                                            </motion.span>
+                                        ))
+                                    )}
                                 </motion.span>
                             ))}
-                        </motion.span>
+                        </motion.div>
                     </motion.h1>
                     <motion.p
                         className="text-blue-100 text-lg md:text-xl max-w-lg mb-8 leading-relaxed"
@@ -130,11 +184,23 @@ const Hero = () => {
                     {/* Designer Image in Foreground */}
                     <motion.div
                         initial={{ scale: 0.8, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 1 }}
-                        transition={{ duration: 1, ease: "easeOut" }}
+                        animate={{
+                            scale: 1,
+                            opacity: 1,
+                            y: [0, -20, 0] // Floating effect
+                        }}
+                        transition={{
+                            duration: 1,
+                            ease: "easeOut",
+                            y: {
+                                duration: 4,
+                                repeat: Infinity,
+                                ease: "easeInOut"
+                            }
+                        }}
                         className="relative z-10"
                     >
-                        <img src={designerImage} alt="Designer Portrait" className="w-full h-auto object-contain drop-shadow-2xl" />
+                        <img src={logo} alt="Logo" className="w-3/4 mx-auto h-auto object-contain drop-shadow-2xl" />
                     </motion.div>
 
                     {/* Decorative Elements */}

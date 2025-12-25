@@ -4,57 +4,133 @@ import { useTranslation } from 'react-i18next';
 import Button from '../components/ui/Button';
 
 const projects = [
+    // Visual Identity
     {
         id: "hook_home",
-        title: "Hook Home Real Estate",
-        category: "real-estate",
+        title: "Hook Home Real Estate Company",
+        category: "visual-identity",
         img: "https://mir-s3-cdn-cf.behance.net/projects/404/cc4ea6237298261.Y3JvcCw4MjcsNjQ2LDAsMg.jpg",
         link: "https://www.behance.net/gallery/237298261/Hook-Home-Real-Estate-Companys-visual-identity"
     },
     {
-        id: "new_design",
-        title: "New Design Real Estate",
-        category: "real-estate",
+        id: "new_design_re",
+        title: "New Design Real Estate Company",
+        category: "visual-identity",
         img: "https://mir-s3-cdn-cf.behance.net/projects/404/8d2588232464499.Y3JvcCw4MjcsNjQ2LDAsMg.jpg",
         link: "https://www.behance.net/gallery/232464499/Visual-identity-New-Design-Real-Estate-Company"
     },
     {
-        id: "guidix",
+        id: "guidix_edu",
         title: "Guidix Education",
-        category: "education",
+        category: "visual-identity",
         img: "https://mir-s3-cdn-cf.behance.net/projects/404/7f5150216479875.Y3JvcCw4MjcsNjQ2LDAsMg.jpg",
         link: "https://www.behance.net/gallery/216479875/Visual-identity-Guidix-Education"
     },
     {
         id: "energy_workspace",
         title: "Energy Workspace",
-        category: "workspace",
+        category: "visual-identity",
         img: "https://mir-s3-cdn-cf.behance.net/projects/404/d8edd7214825375.Y3JvcCw4MjcsNjQ2LDAsMg.jpg",
         link: "https://www.behance.net/gallery/214825375/Visual-identity-(energy)-work-space"
     },
     {
         id: "fixitpro",
-        title: "Fixitpro Decoration",
-        category: "decor",
+        title: "Fixitpro Decoration Company",
+        category: "visual-identity",
         img: "https://mir-s3-cdn-cf.behance.net/projects/404/529268219943005.Y3JvcCw4NDEsNjU4LDQsMA.jpg",
         link: "https://www.behance.net/gallery/219943005/Visual-identity-of-fixitpro-Decoration-Company"
     },
     {
-        id: "codex",
+        id: "codex_programming",
         title: "Codex Programming",
-        category: "tech",
+        category: "visual-identity",
         img: "https://mir-s3-cdn-cf.behance.net/projects/404/f4c705213149073.Y3JvcCw4MjcsNjQ2LDAsMg.jpg",
         link: "https://www.behance.net/gallery/213149073/visual-identity-for-Codex-Programming"
+    },
+    {
+        id: "wadi_swimming",
+        title: "Wadi Swimming Company",
+        category: "visual-identity",
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/48f9d7219384817.Y3JvcCw4NDEsNjU4LDQsMA.gif",
+        link: "https://www.behance.net/gallery/219384817/Visual-identity-Wadi-Swimming-Company"
+    },
+    {
+        id: "misk_furniture",
+        title: "Misk Furniture",
+        category: "visual-identity",
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/07a027215176951.Y3JvcCw4MjcsNjQ2LDAsMg.jpg",
+        link: "https://www.behance.net/gallery/215176951/visual-identity-for-Brand-Misk-Furniture"
+    },
+
+    // Social Media Design
+    {
+        id: "hook_home_social",
+        title: "Hook Home Social Media Designs",
+        category: "social-media",
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/fe428a239927241.Y3JvcCwxMTQyLDg5MywwLDU.jpg",
+        link: "https://www.behance.net/gallery/239927241/Social-media-designs-by-Hook-home-Real-Estate"
+    },
+    {
+        id: "social_rival",
+        title: "Water Treatment Solutions",
+        category: "social-media",
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/fcdfd4233095219.Y3JvcCwxMTQyLDg5MywwLDU.jpg",
+        link: "https://www.behance.net/gallery/233095219/Social-Rival-Designs-for-Water-Treatment-Solutions"
+    },
+    {
+        id: "advance_courses",
+        title: "Advance Courses Social Media",
+        category: "social-media",
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/d5a0de226095841.Y3JvcCwxMTAxLDg2MSwxOSwyMQ.jpg",
+        link: "https://www.behance.net/gallery/226095841/Social-Media-Designs-Advance-Courses"
+    },
+    {
+        id: "captain_car",
+        title: "Captain Car Showroom",
+        category: "social-media",
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/891817218262297.Y3JvcCwxMTQyLDg5MywwLDU.jpg",
+        link: "https://www.behance.net/gallery/218262297/Captain-Car-Showroom-Social-Media-Designs"
+    },
+    {
+        id: "soly_beauty",
+        title: "Soly Beauty Store",
+        category: "social-media",
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/72c4f3215173975.Y3JvcCwxMTQyLDg5MywwLDU.jpg",
+        link: "https://www.behance.net/gallery/215173975/Social-media-designs-for-Soly-Beauty-Store"
+    },
+    {
+        id: "nike_shoes",
+        title: "Nike Shoes Social Media",
+        category: "social-media",
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/6c082d212050793.Y3JvcCwxMTQyLDg5MywwLDU.jpg",
+        link: "https://www.behance.net/gallery/212050793/Social-media-design-for-Nike-shoes"
+    },
+
+    // Printables
+    {
+        id: "lamira_menu",
+        title: "Lamira Restaurant & Cafe Menu",
+        category: "printables",
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/d66fa1218038865.Y3JvcCwxMTQyLDg5MywwLDU.jpg",
+        link: "https://www.behance.net/gallery/218038865/mune-Restaurant-cafe-lamira"
+    },
+
+    // Company Profile
+    {
+        id: "brand_boost",
+        title: "Brand Boost Rebranding",
+        category: "company-profile",
+        img: "https://mir-s3-cdn-cf.behance.net/projects/404/b7275e212204553.Y3JvcCw4MjcsNjQ2LDAsMg.jpg",
+        link: "https://www.behance.net/gallery/212204553/Brand-Boost-Rebranding-IdentityWebsite-Social-Designs"
     }
 ];
 
 const tabs = [
     { id: "all", labelEn: "All", labelAr: "الكل" },
-    { id: "real-estate", labelEn: "Real Estate", labelAr: "عقارات" },
-    { id: "education", labelEn: "Education", labelAr: "تعليم" },
-    { id: "tech", labelEn: "Tech", labelAr: "تكنولوجيا" },
-    { id: "workspace", labelEn: "Workspace", labelAr: "مساحات عمل" },
-    { id: "decor", labelEn: "Decor", labelAr: "ديكور" },
+    { id: "visual-identity", labelEn: "Visual Identity", labelAr: "هوية بصرية" },
+    { id: "social-media", labelEn: "Social Media", labelAr: "سوشيال ميديا" },
+    { id: "company-profile", labelEn: "Company Profile", labelAr: "بروفايل شركات" },
+    { id: "printables", labelEn: "Printables", labelAr: "مطبوعات" },
 ];
 
 const Portfolio = () => {
