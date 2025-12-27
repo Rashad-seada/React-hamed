@@ -159,8 +159,8 @@ const Portfolio = () => {
                             key={tab.id}
                             onClick={() => setActiveTab(tab.id)}
                             className={`px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 border ${activeTab === tab.id
-                                ? 'bg-brand-pink text-white border-brand-pink shadow-lg shadow-brand-pink/30'
-                                : 'bg-transparent text-white/70 border-white/20 hover:border-white/50 hover:text-white'
+                                ? 'bg-brand-pink/80 backdrop-blur-md text-white border-brand-pink shadow-[0_0_15px_rgba(255,44,124,0.3)]'
+                                : 'bg-white/5 backdrop-blur-md text-white/70 border-white/10 hover:border-white/30 hover:bg-white/10 hover:text-white'
                                 }`}
                         >
                             {i18n.language === 'ar' ? tab.labelAr : tab.labelEn}
@@ -182,13 +182,11 @@ const Portfolio = () => {
                                 animate={{ opacity: 1, scale: 1 }}
                                 exit={{ opacity: 0, scale: 0.9 }}
                                 transition={{ duration: 0.4 }}
-                                className="group"
+                                className="group relative p-3 bg-white/5 backdrop-blur-sm rounded-2xl border border-white/10 shadow-lg hover:shadow-brand-pink/20 transition-all duration-300"
                             >
                                 {/* Card Image Container */}
                                 <a
                                     href={project.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
                                     className="relative aspect-[4/3] rounded-xl lg:rounded-2xl overflow-hidden shadow-xl cursor-pointer block"
                                 >
                                     {/* Image */}

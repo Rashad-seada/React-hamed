@@ -27,7 +27,7 @@ const WhatsAppButton = () => {
                     transition={{ duration: 0.3, type: "spring", stiffness: 260, damping: 20 }}
                     whileHover={{ scale: 1.1 }}
                     whileTap={{ scale: 0.9 }}
-                    className="fixed bottom-8 right-8 z-50 bg-brand-pink text-white p-4 rounded-full shadow-lg hover:shadow-brand-pink/50 transition-shadow duration-300 flex items-center justify-center"
+                    className="fixed bottom-8 right-8 z-50 bg-brand-pink/80 backdrop-blur-md text-white p-4 rounded-full shadow-lg border border-white/20 hover:shadow-brand-pink/50 hover:bg-brand-pink transition-all duration-300 flex items-center justify-center"
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"

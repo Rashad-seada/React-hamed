@@ -13,8 +13,8 @@ const resources = {
             },
             "hero": {
                 "tagline": "قيمة . فخامة . تأثير",
-                "title_prefix": "هويتك البصرية...",
-                "title_suffix": "مرآة لرؤيتك",
+                "title_prefix": "نبني هويتك البصرية...",
+                "title_suffix": "لتعكس رؤيتك للعالم",
                 "description": "مين قال إن التصميم مجرد ألوان؟ أنا هنا عشان أحول فكرتك لبراند قوي يسيب بصمة، يزود مبيعاتك، ويحطك في مكان تانية خالص في السوق.",
                 "view_portfolio": "شوف شغلي",
                 "start_project": "يلا نبني براند",
@@ -91,15 +91,17 @@ const resources = {
                 "see_more": "شاهد المزيد على "
             },
             "about": {
-                "im_hamed": "أنا حامد،",
-                "the_designer": "المصمم",
-                "with_the": "صاحب",
-                "magic_touch": "اللمسة السحرية."
+                "im_hamed": "أنا حامد شرف،",
+                "the_designer": "مصمم جرافيك",
+                "description": "على مدار رحلتي في المجال، اشتغلت في شركات وقدّمت شغل لبراندات مختلفة، سواء في مصر أو برا مصر، في مجالات مختلفة. تركيزي الأساسي دايمًا بيكون على إن التصميم يطلع معبّر وواضح، ويخدم البراند أو الشركة بشكل عملي، مش مجرد شكل حلو وخلاص.\nبشتغل على الهوية البصرية وتصميمات السوشيال ميديا و الكامبني بروفايل والباكينج، وبحب دايمًا إن الشغل يطلع مرتب ومنسق ويعكس الصورة الصح للبراند."
             },
             "footer": {
                 "lets_talk": "جاهز تنقل براندك في حتة تانية؟",
                 "contact_us": "تواصل معنا",
-                "crafted_with_passion": "© 2025. تصميم معمول بمزاج عشان ينجّحك."
+                "crafted_with_passion": "© 2025. تصميم معمول بمزاج عشان ينجّحك.",
+                "success_title": "شكراً لك!",
+                "success_message": "سيتواصل معك أحد أعضاء فريقنا قريباً.",
+                "whatsapp_btn": "تواصل على واتساب"
             }
         }
     },
@@ -191,15 +193,17 @@ const resources = {
                 "see_more": "See More on "
             },
             "about": {
-                "im_hamed": "I'm Hamed,",
-                "the_designer": "The Designer",
-                "with_the": "with the",
-                "magic_touch": "Magic Touch."
+                "im_hamed": "I am Hamed Sharaf,",
+                "the_designer": "Graphic Designer",
+                "description": "Throughout my journey, I have worked with various companies and brands, both in Egypt and abroad, across different industries. My main focus is always on creating designs that are expressive, clear, and serve the brand practically—not just looking good.\nI specialize in Visual Identity, Social Media Designs, Company Profiles, and Packaging. I always strive for organized, coordinated work that reflects the true image of the brand."
             },
             "footer": {
                 "lets_talk": "Ready to Level Up Your Brand?",
                 "contact_us": "Contact Us",
-                "crafted_with_passion": "© 2025. Crafted to distinguish you in the market."
+                "crafted_with_passion": "© 2025. Crafted to distinguish you in the market.",
+                "success_title": "Thank You!",
+                "success_message": "Someone will contact you soon.",
+                "whatsapp_btn": "Contact on WhatsApp"
             }
         }
     }

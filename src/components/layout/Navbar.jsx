@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import logo from '../../assets/logo.png';
+import logo from '../../assets/avatar_logo.png';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);
@@ -36,8 +36,8 @@ const Navbar = () => {
             <div className="max-w-7xl mx-auto px-4 md:px-8 flex items-center justify-between">
                 <a href="#" className="block">
                     <motion.div layoutId="brand-logo" transition={{ duration: 0.8, ease: [0.6, 0.01, -0.05, 0.9] }}>
-                        <div className="w-14 h-14 rounded-full bg-gradient-to-br from-brand-blue via-blue-700 to-blue-900 border-2 border-brand-pink flex items-center justify-center p-2 shadow-lg shadow-brand-pink/20">
-                            <img src={logo} alt="Brand Logo" className="w-full h-full object-contain" />
+                        <div className="w-14 h-14 rounded-full overflow-hidden shadow-lg shadow-brand-pink/20">
+                            <img src={logo} alt="Brand Logo" className="w-full h-full object-cover" />
                         </div>
                     </motion.div>
                 </a>
@@ -63,7 +63,7 @@ const Navbar = () => {
 
                     <a
                         href="#contact"
-                        className="px-5 py-2 text-sm font-medium bg-white text-black rounded-full hover:bg-brand-pink hover:text-white transition-colors"
+                        className="px-5 py-2 text-sm font-medium bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full hover:bg-brand-pink hover:border-brand-pink hover:text-white transition-all duration-300 shadow-lg"
                     >
                         {t('nav.start_project')}
                     </a>

@@ -4,8 +4,8 @@ const Button = ({ children, onClick, className = '', variant = 'primary' }) => {
     const baseStyles = "px-8 py-3 rounded-full font-medium tracking-wide transition-all duration-300 relative overflow-hidden group";
 
     const variants = {
-        primary: "bg-brand-pink text-white hover:shadow-[0_0_20px_rgba(255,44,124,0.5)] border border-transparent hover:border-white/50",
-        outline: "border border-white/20 text-white hover:border-brand-pink hover:text-brand-pink hover:bg-white/5",
+        primary: "bg-brand-pink/80 backdrop-blur-md text-white hover:bg-brand-pink/90 border border-white/20 hover:border-white/50 shadow-[0_4px_30px_rgba(0,0,0,0.1)]",
+        outline: "bg-white/5 backdrop-blur-sm border border-white/20 text-white hover:bg-white/10 hover:border-brand-pink hover:text-brand-pink hover:shadow-[0_0_20px_rgba(255,44,124,0.3)]",
     };
 
     return (

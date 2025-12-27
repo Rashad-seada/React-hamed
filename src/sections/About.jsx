@@ -15,49 +15,81 @@ const About = () => {
     const y = useTransform(scrollYProgress, [0, 1], [50, -50]);
 
     return (
-        <section ref={containerRef} id="about" className="relative min-h-screen bg-transparent flex items-center py-20 overflow-hidden">
+        <section ref={containerRef} id="about" className="relative min-h-screen bg-transparent flex items-center py-32 overflow-hidden">
 
+            {/* Background Ambience */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-brand-pink/10 rounded-full blur-[120px] mix-blend-screen" />
 
-            {/* Fluid Abstract Shape Background */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-brand-pink/20 rounded-full blur-[120px] mix-blend-screen animate-pulse duration-[10s]" />
-            <div className="absolute top-0 right-0 w-[50vw] h-[50vw] bg-brand-blue/40 rounded-full blur-[100px] mix-blend-overlay" />
+            <div className="container mx-auto px-4 relative z-10 flex justify-center">
 
-            <div className="container mx-auto px-4 relative z-10 flex flex-col items-center justify-center text-center h-full">
+                {/* Profile Card Container */}
+                <motion.div
+                    initial={{ opacity: 0, scale: 0.95 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8 }}
+                    className="relative w-full max-w-4xl bg-brand-dark/50 backdrop-blur-md rounded-3xl border border-brand-pink/30 p-8 md:p-12 lg:p-16 flex flex-col items-center text-center shadow-[0_0_50px_rgba(255,44,124,0.15)]"
+                >
 
-                {/* Content: Typography & CTA */}
-                <div className="max-w-4xl mx-auto flex flex-col items-center">
+                    {/* Glowing Border Effect */}
+                    <div className="absolute inset-0 rounded-3xl border border-brand-pink/50 shadow-[0_0_30px_rgba(255,44,124,0.2)_inset]" />
+
+                    {/* Profile Image - Floating at top */}
+                    <div className="relative mb-8 -mt-24 md:-mt-32">
+                        <div className="w-40 h-40 md:w-56 md:h-56 rounded-full p-2 bg-gradient-to-b from-brand-pink to-brand-blue shadow-[0_0_40px_rgba(255,44,124,0.4)]">
+                            <img
+                                src={designerImage}
+                                alt="Hamed Sharaf"
+                                className="w-full h-full object-cover rounded-full border-4 border-brand-dark"
+                            />
+                        </div>
+                    </div>
+
+                    {/* Name & Title */}
                     <motion.h2
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="text-5xl md:text-7xl lg:text-8xl font-black text-white uppercase leading-[0.9] tracking-tight mb-8"
-                        style={{ fontFamily: i18n.language === 'ar' ? "'Alexandria', sans-serif" : 'inherit' }}
-                    >
-                        {t('about.im_hamed')}<br />
-                        <span className="text-brand-pink drop-shadow-[0_0_15px_rgba(255,44,124,0.6)]">{t('about.the_designer')}</span>
-                    </motion.h2>
-
-                    <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.2, duration: 0.8 }}
-                        className="text-lg md:text-xl text-gray-300 max-w-lg mx-auto mb-10 font-light leading-relaxed"
+                        transition={{ delay: 0.2, duration: 0.6 }}
+                        className="text-4xl md:text-6xl font-black text-white mb-4"
+                        style={{ fontFamily: i18n.language === 'ar' ? "'Alexandria', sans-serif" : 'inherit' }}
                     >
-                        {t('hero.description')}
-                    </motion.p>
+                        {t('about.im_hamed')}
+                    </motion.h2>
 
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        transition={{ delay: 0.4 }}
+                        transition={{ delay: 0.3, duration: 0.6 }}
+                        className="text-brand-pink text-lg md:text-xl font-bold tracking-widest uppercase mb-8"
+                    >
+                        {t('about.the_designer')}
+                    </motion.div>
+
+                    {/* Description */}
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.4, duration: 0.6 }}
+                        className="text-gray-300 text-lg leading-relaxed max-w-3xl mx-auto mb-12"
+                    >
+                        {t('about.description')}
+                    </motion.p>
+
+                    {/* CTA Button */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.5 }}
+                        className="relative z-10"
                     >
                         <Button
                             variant="primary"
                             onClick={() => document.getElementById('contact').scrollIntoView()}
-                            className="rounded-full px-8 py-4 text-lg flex items-center gap-3 bg-brand-pink hover:bg-brand-pink/90 text-white transition-all shadow-[0_0_20px_rgba(255,44,124,0.4)]"
+                            className="rounded-full px-10 py-4 text-lg flex items-center gap-3 bg-brand-pink hover:bg-brand-pink/90 text-white transition-all shadow-[0_0_20px_rgba(255,44,124,0.4)] hover:shadow-[0_0_30px_rgba(255,44,124,0.6)]"
                         >
                             <span>{t('hero.start_project')}</span>
                             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2} stroke="currentColor" className="w-5 h-5 -rotate-45 rtl:rotate-180">
@@ -65,7 +97,8 @@ const About = () => {
                             </svg>
                         </Button>
                     </motion.div>
-                </div>
+
+                </motion.div>
             </div>
         </section>
     );
