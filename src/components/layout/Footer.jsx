@@ -141,11 +141,9 @@ const Footer = () => {
     return (
         <footer id="contact" className="relative bg-transparent py-20 md:py-32 overflow-hidden">
             {/* Background Text */}
-            <div className="absolute top-10 left-1/2 -translate-x-1/2 text-[8vw] md:text-[10vw] font-black text-white/[0.03] uppercase tracking-widest whitespace-nowrap pointer-events-none select-none">
-                {i18n.language === 'ar' ? 'تواصل معنا' : 'Contact Us'}
-            </div>
 
-            <div className="container mx-auto px-4 relative z-10">
+
+            <div className="container mx-auto px-6 md:px-12 relative z-10">
                 {/* Main Content Grid */}
                 <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 mb-16">
                     {/* Left Side - Text Content */}
