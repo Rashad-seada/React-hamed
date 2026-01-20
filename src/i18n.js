@@ -91,9 +91,12 @@ const resources = {
                 "see_more": "شاهد المزيد على "
             },
             "about": {
-                "im_hamed": "أنا حامد شرف،",
-                "the_designer": "مصمم جرافيك",
-                "description": "على مدار رحلتي في المجال، اشتغلت في شركات وقدّمت شغل لبراندات مختلفة، سواء في مصر أو برا مصر، في مجالات مختلفة. تركيزي الأساسي دايمًا بيكون على إن التصميم يطلع معبّر وواضح، ويخدم البراند أو الشركة بشكل عملي، مش مجرد شكل حلو وخلاص.\nبشتغل على الهوية البصرية وتصميمات السوشيال ميديا و الكامبني بروفايل والباكينج، وبحب دايمًا إن الشغل يطلع مرتب ومنسق ويعكس الصورة الصح للبراند."
+                "im_hamed": "حامد شرف",
+                "subtitle_prefix": "أنا حامد شرف، مصمم جرافيك بخبرة ",
+                "subtitle_highlight": "أكثر من 5 سنين في مجال التصميم.",
+                "subtitle_suffix": "",
+                "description_p1": "على مدار رحلتي في المجال، اشتغلت في شركات وقدّمت شغل لبراندات مختلفة، سواء في مصر أو برا مصر، في مجالات مختلفة. تركيزي الأساسي دايمًا بيكون على إن التصميم يطلع معبّر وواضح، ويخدم البراند أو الشركة بشكل عملي، مش مجرد شكل حلو وخلاص.",
+                "description_p2": "بشتغل على الهوية البصرية وتصميمات السوشيال ميديا و الكامبني بروفايل والباكينج، وبحب دايمًا إن الشغل يطلع مرتب ومنسق ويعكس الصورة الصح للبراند."
             },
             "footer": {
                 "lets_talk": "جاهز تنقل براندك في حتة تانية؟",
@@ -193,9 +196,12 @@ const resources = {
                 "see_more": "See More on "
             },
             "about": {
-                "im_hamed": "I am Hamed Sharaf,",
-                "the_designer": "Graphic Designer",
-                "description": "Throughout my journey, I have worked with various companies and brands, both in Egypt and abroad, across different industries. My main focus is always on creating designs that are expressive, clear, and serve the brand practically—not just looking good.\nI specialize in Visual Identity, Social Media Designs, Company Profiles, and Packaging. I always strive for organized, coordinated work that reflects the true image of the brand."
+                "im_hamed": "Hamed Sharaf",
+                "subtitle_prefix": "I am Hamed Sharaf, a Graphic Designer with ",
+                "subtitle_highlight": "over 5 years of experience in the design field.",
+                "subtitle_suffix": "",
+                "description_p1": "Throughout my journey, I have worked with various companies and brands, both in Egypt and abroad, across different industries. My main focus is always on creating designs that are expressive, clear, and serve the brand practically—not just looking good.",
+                "description_p2": "I specialize in Visual Identity, Social Media Designs, Company Profiles, and Packaging. I always strive for organized, coordinated work that reflects the true image of the brand."
             },
             "footer": {
                 "lets_talk": "Ready to Level Up Your Brand?",
