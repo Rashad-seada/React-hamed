@@ -19,7 +19,7 @@ const Hero = () => {
             {/* Pink Frame Border */}
             <div className="hidden md:block absolute inset-12 md:inset-16 lg:inset-24 border-2 border-brand-pink/50 rounded-3xl pointer-events-none z-20" />
 
-            <div className="container mx-auto px-4 grid lg:grid-cols-2 gap-12 items-center z-10 relative">
+            <div className="container mx-auto px-4 md:px-24 lg:px-32 grid lg:grid-cols-2 gap-12 items-center z-10 relative">
                 <motion.div
                     initial={{ opacity: 0, x: -50 }}
                     animate={{ opacity: 1, x: 0 }}
@@ -200,7 +200,7 @@ const Hero = () => {
                         }}
                         className="relative z-10"
                     >
-                        <img src={logo} alt="Logo" className="w-3/4 mx-auto h-auto object-contain drop-shadow-2xl" />
+                        <img src={logo} alt="Logo" className="w-1/2 md:w-2/3 mx-auto h-auto object-contain drop-shadow-2xl" />
                     </motion.div>
 
                     {/* Decorative Elements */}
