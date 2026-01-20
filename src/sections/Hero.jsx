@@ -200,7 +200,7 @@ const Hero = () => {
                         }}
                         className="relative z-10"
                     >
-                        <img src={logo} alt="Logo" className="w-1/2 md:w-2/3 mx-auto h-auto object-contain drop-shadow-2xl" />
+                        <img src={logo} alt="Logo" className="w-1/2 md:w-2/3 mx-auto h-auto object-contain" />
                     </motion.div>
 
                     {/* Decorative Elements */}
