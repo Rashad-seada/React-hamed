@@ -33,8 +33,9 @@ const countries = [
 
 // Work types matching portfolio categories
 const workTypes = [
+    { id: 'logo_design', labelEn: 'Logo Design', labelAr: 'تصميم شعار' },
     { id: 'visual_identity', labelEn: 'Visual Identity', labelAr: 'هوية بصرية' },
-    { id: 'social_media', labelEn: 'Social Media', labelAr: 'سوشيال ميديا' },
+    { id: 'social_media', labelEn: 'Social Media', labelAr: 'تصميمات سوشيال ميديا' },
     { id: 'company_profile', labelEn: 'Company Profile', labelAr: 'بروفايل شركات' },
     { id: 'printables', labelEn: 'Printables', labelAr: 'مطبوعات' },
 ];

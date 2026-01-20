@@ -17,8 +17,7 @@ const About = () => {
     return (
         <section ref={containerRef} id="about" className="relative min-h-screen bg-transparent flex items-center py-40 overflow-hidden">
 
-            {/* Background Ambience */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[80vw] h-[80vw] bg-brand-pink/10 rounded-full blur-[120px] mix-blend-screen pointer-events-none" />
+
 
             <div className="container mx-auto px-4 relative z-10 flex flex-col items-center">
 

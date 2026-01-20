@@ -128,7 +128,7 @@ const projects = [
 const tabs = [
     { id: "all", labelEn: "All", labelAr: "الكل" },
     { id: "visual-identity", labelEn: "Visual Identity", labelAr: "هوية بصرية" },
-    { id: "social-media", labelEn: "Social Media", labelAr: "سوشيال ميديا" },
+    { id: "social-media", labelEn: "Social Media", labelAr: "تصميمات سوشيال ميديا" },
     { id: "company-profile", labelEn: "Company Profile", labelAr: "بروفايل شركات" },
     { id: "printables", labelEn: "Printables", labelAr: "مطبوعات" },
 ];
@@ -143,7 +143,7 @@ const Portfolio = () => {
 
     return (
         <section id="work" className="relative bg-transparent min-h-screen py-20 md:py-32 overflow-hidden">
-            <div className="container mx-auto px-4 relative z-10">
+            <div className="container mx-auto px-4 lg:px-24 relative z-10">
                 {/* Section Title */}
                 <div className="text-center mb-12">
                     <h2 className="text-sm font-bold text-brand-pink tracking-widest uppercase mb-4">
