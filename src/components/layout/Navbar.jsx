@@ -42,12 +42,12 @@ const Navbar = () => {
                     </motion.div>
                 </a>
 
-                <div className="hidden md:flex items-center gap-8">
+                <div className="flex items-center gap-4 md:gap-8">
                     {navLinks.map((link) => (
                         <a
                             key={link.href}
                             href={link.href}
-                            className="text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
+                            className="text-xs md:text-sm font-medium text-gray-300 hover:text-white transition-colors relative group"
                         >
                             {link.name}
                             <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-pink transition-all duration-300 group-hover:w-full" />
@@ -56,14 +56,14 @@ const Navbar = () => {
 
                     <button
                         onClick={toggleLanguage}
-                        className="text-sm font-medium text-white hover:text-brand-pink transition-colors uppercase"
+                        className="hidden md:block text-sm font-medium text-white hover:text-brand-pink transition-colors uppercase"
                     >
                         {i18n.language === 'en' ? 'AR' : 'EN'}
                     </button>
 
                     <a
                         href="#contact"
-                        className="px-5 py-2 text-sm font-medium bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full hover:bg-brand-pink hover:border-brand-pink hover:text-white transition-all duration-300 shadow-lg"
+                        className="hidden md:block px-5 py-2 text-sm font-medium bg-white/10 backdrop-blur-md border border-white/20 text-white rounded-full hover:bg-brand-pink hover:border-brand-pink hover:text-white transition-all duration-300 shadow-lg"
                     >
                         {t('nav.start_project')}
                     </a>

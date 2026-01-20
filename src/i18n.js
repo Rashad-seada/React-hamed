@@ -104,7 +104,17 @@ const resources = {
                 "crafted_with_passion": "© 2025. تصميم معمول بمزاج عشان ينجّحك.",
                 "success_title": "شكراً لك!",
                 "success_message": "سيتواصل معك أحد أعضاء فريقنا قريباً.",
-                "whatsapp_btn": "تواصل على واتساب"
+                "whatsapp_btn": "تواصل على واتساب",
+                "country_label": "الدولة",
+                "work_type_label": "نوع العمل",
+                "select_country": "اختر الدولة",
+                "select_work_type": "اختر نوع العمل",
+                "work_types": {
+                    "visual_identity": "هوية بصرية",
+                    "social_media": "سوشيال ميديا",
+                    "company_profile": "بروفايل شركات",
+                    "printables": "مطبوعات"
+                }
             }
         }
     },
@@ -209,7 +219,17 @@ const resources = {
                 "crafted_with_passion": "© 2025. Crafted to distinguish you in the market.",
                 "success_title": "Thank You!",
                 "success_message": "Someone will contact you soon.",
-                "whatsapp_btn": "Contact on WhatsApp"
+                "whatsapp_btn": "Contact on WhatsApp",
+                "country_label": "Country",
+                "work_type_label": "Work Type",
+                "select_country": "Select Country",
+                "select_work_type": "Select Work Type",
+                "work_types": {
+                    "visual_identity": "Visual Identity",
+                    "social_media": "Social Media",
+                    "company_profile": "Company Profile",
+                    "printables": "Printables"
+                }
             }
         }
     }

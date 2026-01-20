@@ -1,46 +1,98 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 
+// List of countries for dropdown
+const countries = [
+    { code: 'EG', nameEn: 'Egypt', nameAr: 'مصر' },
+    { code: 'SA', nameEn: 'Saudi Arabia', nameAr: 'السعودية' },
+    { code: 'AE', nameEn: 'United Arab Emirates', nameAr: 'الإمارات' },
+    { code: 'KW', nameEn: 'Kuwait', nameAr: 'الكويت' },
+    { code: 'QA', nameEn: 'Qatar', nameAr: 'قطر' },
+    { code: 'BH', nameEn: 'Bahrain', nameAr: 'البحرين' },
+    { code: 'OM', nameEn: 'Oman', nameAr: 'عمان' },
+    { code: 'JO', nameEn: 'Jordan', nameAr: 'الأردن' },
+    { code: 'LB', nameEn: 'Lebanon', nameAr: 'لبنان' },
+    { code: 'IQ', nameEn: 'Iraq', nameAr: 'العراق' },
+    { code: 'SY', nameEn: 'Syria', nameAr: 'سوريا' },
+    { code: 'PS', nameEn: 'Palestine', nameAr: 'فلسطين' },
+    { code: 'LY', nameEn: 'Libya', nameAr: 'ليبيا' },
+    { code: 'TN', nameEn: 'Tunisia', nameAr: 'تونس' },
+    { code: 'DZ', nameEn: 'Algeria', nameAr: 'الجزائر' },
+    { code: 'MA', nameEn: 'Morocco', nameAr: 'المغرب' },
+    { code: 'SD', nameEn: 'Sudan', nameAr: 'السودان' },
+    { code: 'YE', nameEn: 'Yemen', nameAr: 'اليمن' },
+    { code: 'US', nameEn: 'United States', nameAr: 'الولايات المتحدة' },
+    { code: 'GB', nameEn: 'United Kingdom', nameAr: 'المملكة المتحدة' },
+    { code: 'DE', nameEn: 'Germany', nameAr: 'ألمانيا' },
+    { code: 'FR', nameEn: 'France', nameAr: 'فرنسا' },
+    { code: 'CA', nameEn: 'Canada', nameAr: 'كندا' },
+    { code: 'AU', nameEn: 'Australia', nameAr: 'أستراليا' },
+    { code: 'OTHER', nameEn: 'Other', nameAr: 'أخرى' },
+];
+
+// Work types matching portfolio categories
+const workTypes = [
+    { id: 'visual_identity', labelEn: 'Visual Identity', labelAr: 'هوية بصرية' },
+    { id: 'social_media', labelEn: 'Social Media', labelAr: 'سوشيال ميديا' },
+    { id: 'company_profile', labelEn: 'Company Profile', labelAr: 'بروفايل شركات' },
+    { id: 'printables', labelEn: 'Printables', labelAr: 'مطبوعات' },
+];
+
 const Footer = () => {
     const { t, i18n } = useTranslation();
-    const [formData, setFormData] = useState({ name: '', phone: '' });
+    const [formData, setFormData] = useState({ name: '', phone: '', country: '', workType: '' });
     const [status, setStatus] = useState('');
     const [showSuccessModal, setShowSuccessModal] = useState(false);
 
+    // Detect country from IP on mount
+    useEffect(() => {
+        const detectCountry = async () => {
+            try {
+                const response = await fetch('http://ip-api.com/json/?fields=countryCode');
+                const data = await response.json();
+                if (data.countryCode) {
+                    // Check if detected country is in our list
+                    const found = countries.find(c => c.code === data.countryCode);
+                    if (found) {
+                        setFormData(prev => ({ ...prev, country: data.countryCode }));
+                    } else {
+                        setFormData(prev => ({ ...prev, country: 'EG' })); // Default to Egypt
+                    }
+                }
+            } catch (error) {
+                console.log('Could not detect country:', error);
+                setFormData(prev => ({ ...prev, country: 'EG' })); // Default to Egypt
+            }
+        };
+        detectCountry();
+    }, []);
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        setStatus('sending');
 
-        // Google Apps Script Web App URL (User needs to update this)
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyk4btheL8YfYxfzDI1XLflnUAGZwVQSiM09DmbB-GWzyXgS3o0lXWBfhP4zXzF6d9i/exec';
+        // Get country and work type labels
+        const countryLabel = countries.find(c => c.code === formData.country);
+        const workTypeLabel = workTypes.find(w => w.id === formData.workType);
 
-        try {
-            // We use a specific fetch setup for Google Apps Script (no-cors often used if opaque response is ok, 
-            // but here we try simple POST. Note: Client-side CORS issues often happen with Google Sheets.
-            // Using FormData is standard.)
-            const data = new FormData();
-            data.append('name', formData.name);
-            data.append('phone', formData.phone);
-            data.append('created_at', new Date().toLocaleString());
+        const countryName = i18n.language === 'ar'
+            ? (countryLabel?.nameAr || formData.country)
+            : (countryLabel?.nameEn || formData.country);
 
-            // Warning: 'no-cors' mode means we can't read the response, but it sends the data.
-            await fetch(GOOGLE_SCRIPT_URL, {
-                method: 'POST',
-                body: data,
-                mode: 'no-cors'
-            });
+        const workTypeName = i18n.language === 'ar'
+            ? (workTypeLabel?.labelAr || formData.workType)
+            : (workTypeLabel?.labelEn || formData.workType);
 
-            setStatus('success');
-            setFormData({ name: '', phone: '' });
-            setShowSuccessModal(true);
-        } catch (error) {
-            console.error('Error:', error);
-            setStatus('error');
-            alert(i18n.language === 'ar' ? 'حدث خطأ، حاول مرة أخرى.' : 'Error sending message.');
-        } finally {
-            setStatus('');
-        }
+        // Compose WhatsApp message
+        const message = i18n.language === 'ar'
+            ? `مرحباً، أنا ${formData.name}%0Aرقم الهاتف: ${formData.phone}%0Aالدولة: ${countryName}%0Aنوع العمل المطلوب: ${workTypeName}`
+            : `Hello, I am ${formData.name}%0APhone: ${formData.phone}%0ACountry: ${countryName}%0AWork Type: ${workTypeName}`;
+
+        // Open WhatsApp with composed message
+        window.open(`https://wa.me/201117118585?text=${message}`, '_blank');
+
+        // Reset form (keep country)
+        setFormData({ name: '', phone: '', country: formData.country, workType: '' });
     };
 
     const features = [
@@ -210,6 +262,52 @@ const Footer = () => {
                                         className={`w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-5 py-4 text-white placeholder:text-gray-400 focus:outline-none focus:border-brand-pink transition-colors ${i18n.language === 'ar' ? 'text-right' : 'text-left'}`}
                                         required
                                     />
+                                </div>
+
+                                {/* Country Dropdown */}
+                                <div className="space-y-2">
+                                    <label htmlFor="country" className="text-sm font-medium text-gray-300">
+                                        {t('footer.country_label')}
+                                    </label>
+                                    <select
+                                        id="country"
+                                        name="country"
+                                        value={formData.country}
+                                        onChange={(e) => setFormData({ ...formData, country: e.target.value })}
+                                        className={`w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-pink transition-colors appearance-none cursor-pointer ${i18n.language === 'ar' ? 'text-right' : 'text-left'}`}
+                                        required
+                                        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: i18n.language === 'ar' ? 'left 1rem center' : 'right 1rem center', backgroundSize: '1.5rem' }}
+                                    >
+                                        <option value="" disabled className="bg-brand-blue text-gray-400">{t('footer.select_country')}</option>
+                                        {countries.map((country) => (
+                                            <option key={country.code} value={country.code} className="bg-brand-blue text-white">
+                                                {i18n.language === 'ar' ? country.nameAr : country.nameEn}
+                                            </option>
+                                        ))}
+                                    </select>
+                                </div>
+
+                                {/* Work Type Dropdown */}
+                                <div className="space-y-2">
+                                    <label htmlFor="workType" className="text-sm font-medium text-gray-300">
+                                        {t('footer.work_type_label')}
+                                    </label>
+                                    <select
+                                        id="workType"
+                                        name="workType"
+                                        value={formData.workType}
+                                        onChange={(e) => setFormData({ ...formData, workType: e.target.value })}
+                                        className={`w-full bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-5 py-4 text-white focus:outline-none focus:border-brand-pink transition-colors appearance-none cursor-pointer ${i18n.language === 'ar' ? 'text-right' : 'text-left'}`}
+                                        required
+                                        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='white'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: i18n.language === 'ar' ? 'left 1rem center' : 'right 1rem center', backgroundSize: '1.5rem' }}
+                                    >
+                                        <option value="" disabled className="bg-brand-blue text-gray-400">{t('footer.select_work_type')}</option>
+                                        {workTypes.map((type) => (
+                                            <option key={type.id} value={type.id} className="bg-brand-blue text-white">
+                                                {i18n.language === 'ar' ? type.labelAr : type.labelEn}
+                                            </option>
+                                        ))}
+                                    </select>
                                 </div>
                             </div>
 
