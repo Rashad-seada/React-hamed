@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import logo from '../../assets/avatar_logo.png';
+import logo from '../../assets/avatar_logo.webp';
 
 const Navbar = () => {
     const [scrolled, setScrolled] = useState(false);

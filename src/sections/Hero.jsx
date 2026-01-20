@@ -1,7 +1,7 @@
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
 import Button from '../components/ui/Button';
-import logo from '../assets/logo.png';
+import logo from '../assets/logo.webp';
 
 const Hero = () => {
     const { t, i18n } = useTranslation();

@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useTranslation } from 'react-i18next';
-import designerImage from '../assets/designer.png';
+import designerImage from '../assets/designer.webp';
 import Button from '../components/ui/Button';
 
 const About = () => {
